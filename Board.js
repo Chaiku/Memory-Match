@@ -26,7 +26,7 @@ import Five2 from './media/5D.png';
 // import Four2 from './media/4H.png';
 // import Three2 from './media/3C.png';
 // import Two2 from './media/2S.png';
-// import CardBack from './media/gray_back.png';
+import CardBack from './media/gray_back.png';
 
 
 
@@ -42,6 +42,7 @@ class Board extends Component {
         for (i = shuffledDeck.length - 1; i > 0; i--) {
             let j = Math.floor(Math.random() * (i + 1));
             [array[i], array[j]] = [array[j], array[i]];
+            console.log(shuffledDeck);
         };
         return shuffledDeck;
     };
@@ -55,7 +56,10 @@ class Board extends Component {
             <React.Fragment>
                 <div style={props.boardStyle}>
                     {this.shuffledDeck.map(d => (
-                    <img src={d} className="card" style={this.props.cardStyles} key={d}/>
+                        <span>
+                            <img src={d} className="card" style={this.props.cardStyles} key={d}/>
+                            <img src={CardBack} className="cardBack" style={this.props.cardBackStyle}/>
+                        </span>
                     ))};
                 </div>
             </React.Fragment>
