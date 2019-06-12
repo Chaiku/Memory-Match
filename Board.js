@@ -55,7 +55,7 @@ class Board extends Component {
             <React.Fragment>
                 <div style={props.boardStyle}>
                     {this.shuffledDeck.map(d => (
-                    <img src={d} className="card" key={d}/>
+                    <img src={d} className="card" style={this.props.cardStyles} key={d}/>
                     ))};
                 </div>
             </React.Fragment>
