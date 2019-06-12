@@ -37,6 +37,8 @@ class Board extends Component {
         ],
     };
 
+  
+
     shuffleArray = (array) => {
         const shuffledDeck = array;
         let i = 0;
@@ -52,10 +54,11 @@ class Board extends Component {
         this.shuffleArray(this.state.deck);
     }
 
+
     render(props) {
         return(
             <React.Fragment>
-                <div style={props.boardStyle}>
+                <div style={{border: "1px solid black"}}>
                     {this.shuffledDeck.map(d => (
                         <span>
                             <img src={d} className="card" style={this.props.cardStyles} key={d}/>
