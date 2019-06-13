@@ -15,11 +15,12 @@ function shuffle(array) {
 return array;
 };
 
-function flipCard() {
-    display === "none" ?
-    display = "block" :
-    display = "none"
-};
+// function flipCard() {
+//     const display = 
+//     display === "none" ?
+//     display = "block" :
+//     display = "none"
+// };
 
 const shuffledDeck = shuffle(deck);
 
@@ -38,8 +39,8 @@ const cardBackStyles={
 
 const images = shuffledDeck.map(image => {
     return <div style={{ display: "inline" }} key={image}>
-        <img src={require(`./assets/${image}.png`)} alt={image} className="cardResponsive"  style={cardStyles} onClick={flipCard}/>
-        <img src={require(`./assets/gray_back.png`)} alt="" className="cardResponsive"  style={cardBackStyles} onClick={flipCard}/>
+        <img src={require(`./assets/${image}.png`)} alt={image} className="cardResponsive"  style={cardStyles} />
+        <img src={require(`./assets/gray_back.png`)} alt="" className="cardResponsive"  style={cardBackStyles} />
         </div>
 }); 
 
