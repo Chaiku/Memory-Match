@@ -39,8 +39,8 @@ const cardBackStyles={
 
 const images = shuffledDeck.map(image => {
     return <div style={{ display: "inline" }} key={image}>
-        <img src={require(`./assets/${image}.png`)} alt={image} className="cardResponsive"  style={cardStyles} />
         <img src={require(`./assets/gray_back.png`)} alt="" className="cardResponsive"  style={cardBackStyles} />
+        <img src={require(`./assets/${image}.png`)} alt={image} className="cardResponsive"  style={cardStyles} />
         </div>
 }); 
 
