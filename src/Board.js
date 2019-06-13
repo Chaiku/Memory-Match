@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Card from './Card';
+import './board.css';
 
 const deck =  [
     "aceS", "aceS2", "kingD", "kingD2", "queenH", "queenH2", "jackC", "jackC2", "tenS", "tenS2", "nineD", "nineD2", "eightH", "eightH2", "sevenC", "sevenC2", "sixS", "sixS2", "fiveD", "fiveD2"
@@ -15,50 +17,42 @@ function shuffle(array) {
 return array;
 };
 
-// function flipCard() {
-//     const display = 
-//     display === "none" ?
-//     display = "block" :
-//     display = "none"
-// };
-
-const shuffledDeck = shuffle(deck);
-
-const cardStyles={ 
-    width: "11.111vw", // 1/9th of screen vw for 5 cards and six spaces between and on each end
-    float: "left", 
-    marginLeft:"11.111vw", // see above
-}
-
-const cardBackStyles={ 
-    width: "11.111vw", // 1/9th of screen vw for 5 cards and six spaces between and on each end
-    float: "left", 
-    marginLeft:"11.111vw", // see above
-    display: "none"
-}
-
-const images = shuffledDeck.map(image => {
-    return <div style={{ display: "inline" }} key={image}>
-        <img src={require(`./assets/${image}.png`)} alt={image} className="cardResponsive"  style={cardStyles} />
-        <img src={require(`./assets/gray_back.png`)} alt="" className="cardResponsive"  style={cardBackStyles} />
-        </div>
-}); 
 
 class Board extends Component {
-    
-    render(props) {
-        return(
-            <React.Fragment>
-                <div>
-                   { images }
-                </div>
-            </React.Fragment>
 
+    componentDidMount(){
+        shuffle(deck);
+    };
+    
+    renderCard(i){
+            return <Card value={i} className={i} />
+        }
+
+        render(){
+           return(
+            <div>
+                <div className="boardRow">
+                    {this.renderCard(`./assets/${deck[0]}.png`)}
+                    {this.renderCard(`./assets/${deck[1]}.png`)}
+                    {this.renderCard(deck[2])}
+                    {this.renderCard(deck[3])}
+                </div>            
+                <div className="boardRow">
+                    {this.renderCard(deck[4])}
+                    {this.renderCard(deck[5])}
+                    {this.renderCard(deck[6])}
+                    {this.renderCard(deck[7])}
+                </div>            
+                <div className="boardRow">
+                    {this.renderCard(deck[8])}
+                    {this.renderCard(deck[9])}
+                    {this.renderCard(deck[10])}
+                    {this.renderCard(deck[11])}
+                </div>
+            </div>
 
         )
     }
-
-
-}
+};
 
 export default Board;
